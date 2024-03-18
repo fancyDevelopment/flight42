@@ -1,0 +1,37 @@
+<h4 class="my-3">Flight Search</h4>
+
+<form>
+  <div class="mb-3">
+    <label for="from" class="form-label">From</label>
+    <input class="form-control" id="from" name="from" [(ngModel)]="from">
+  </div>
+  <div class="mb-3">
+    <label for="to" class="form-label">To</label>
+    <input class="form-control" id="to" name="to" [(ngModel)]="to">
+  </div>
+</form>
+
+<div>Your current flight route: {{ route$ | async }}</div>
+
+<button (click)="search()" class="btn btn-primary mt-3">Search</button>
+
+<hr>
+
+<div class="row">
+  @for(f of flights$ | async; track f.id) {
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <flights-flight-card [item]="f" [selected]="f.selected" (selectedChange)="onSelected(f.id, $event)" (editClick)="onEdit(f.id)">
+      <p class="middle"><i>Delays are possible!</i></p>
+      <p class="bottom"><small>Statement without guarantee!</small></p>
+    </flights-flight-card>
+  </div>
+  }
+</div>
+
+<hr>
+
+<pre>
+Basket:
+----------------------------
+{{ basket$ | async | json }}
+</pre>

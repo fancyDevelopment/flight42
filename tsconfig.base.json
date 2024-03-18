@@ -14,7 +14,23 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@flight42/flights/domain": ["libs/flights/domain/src/index.ts"],
+      "@flight42/flights/feature-booking": [
+        "libs/flights/feature-booking/src/index.ts"
+      ],
+      "@flight42/flights/feature-dashboard": [
+        "libs/flights/feature-dashboard/src/index.ts"
+      ],
+      "@flight42/flights/ui-cards": ["libs/flights/ui-cards/src/index.ts"],
+      "@flight42/flights/util-validation": [
+        "libs/flights/util-validation/src/index.ts"
+      ],
+      "@flight42/shared/domain": ["libs/shared/domain/src/index.ts"],
+      "@flight42/shared/util-validation": [
+        "libs/shared/util-validation/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
