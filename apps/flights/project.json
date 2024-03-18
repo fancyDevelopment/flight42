@@ -16,7 +16,10 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/flights/tsconfig.app.json",
         "assets": ["apps/flights/src/favicon.ico", "apps/flights/src/assets"],
-        "styles": ["apps/flights/src/styles.css"],
+        "styles": [
+          "apps/flights/src/styles.css",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
         "scripts": []
       },
       "configurations": {
