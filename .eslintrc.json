@@ -23,6 +23,10 @@
               {
                 "sourceTag": "domain:shared",
                 "onlyDependOnLibsWithTags": ["domain:shared", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:luggage",
+                "onlyDependOnLibsWithTags": ["domain:luggage", "domain:shared"]
               }
             ]
           }

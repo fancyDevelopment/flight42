@@ -1,20 +1,23 @@
 {
-  "name": "flights",
+  "name": "luggage",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "flight42",
-  "sourceRoot": "apps/flights/src",
-  "tags": [],
+  "sourceRoot": "apps/luggage/src",
+  "tags": [
+    "domain:luggage",
+    "type:app"
+  ],
   "targets": {
     "build": {
       "executor": "@angular-architects/native-federation:build",
       "options": {},
       "configurations": {
         "production": {
-          "target": "flights:esbuild:production"
+          "target": "luggage:esbuild:production"
         },
         "development": {
-          "target": "flights:esbuild:development",
+          "target": "luggage:esbuild:development",
           "dev": true
         }
       },
@@ -23,7 +26,7 @@
     "serve": {
       "executor": "@angular-architects/native-federation:build",
       "options": {
-        "target": "flights:serve-original:development",
+        "target": "luggage:serve-original:development",
         "rebuildDelay": 0,
         "dev": true,
         "port": 0
@@ -32,7 +35,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "flights:build"
+        "buildTarget": "luggage:build"
       }
     },
     "lint": {
@@ -44,7 +47,14 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "apps/flights/jest.config.ts"
+        "jestConfig": "apps/luggage/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "luggage:build",
+        "staticFilePath": "dist/apps/luggage/browser"
       }
     },
     "esbuild": {
@@ -53,21 +63,21 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/flights",
-        "index": "apps/flights/src/index.html",
-        "browser": "apps/flights/src/main.ts",
+        "outputPath": "dist/apps/luggage",
+        "index": "apps/luggage/src/index.html",
+        "browser": "apps/luggage/src/main.ts",
         "polyfills": [
           "zone.js",
           "es-module-shims"
         ],
-        "tsConfig": "apps/flights/tsconfig.app.json",
+        "tsConfig": "apps/luggage/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/flights/src/favicon.ico",
-          "apps/flights/src/assets"
+          "apps/luggage/src/favicon.ico",
+          "apps/luggage/src/assets"
         ],
         "styles": [
-          "apps/flights/src/styles.css",
-          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          "apps/luggage/src/styles.scss"
         ],
         "scripts": []
       },
@@ -99,15 +109,15 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "flights:esbuild:production"
+          "buildTarget": "luggage:esbuild:production"
         },
         "development": {
-          "buildTarget": "flights:esbuild:development"
+          "buildTarget": "luggage:esbuild:development"
         }
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4200
+        "port": 4201
       }
     }
   }
