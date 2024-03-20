@@ -1,9 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
-import { importProvidersFrom, isDevMode } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { initFederation } from '@angular-architects/native-federation';
 
-import { AppComponent } from './app/app.component';
-
-bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(HttpClientModule)],
-});
+initFederation()
+  .catch(err => console.error(err))
+  .then(_ => import('./bootstrap'))
+  .catch(err => console.error(err));
