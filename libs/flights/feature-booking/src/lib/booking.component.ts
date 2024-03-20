@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { somthingFromFlightsUtilValidation } from '@flight42/flights/util-validation';
 
 @Component({
   standalone: true,

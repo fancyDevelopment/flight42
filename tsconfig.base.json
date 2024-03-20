@@ -26,6 +26,13 @@
       "@flight42/flights/util-validation": [
         "libs/flights/util-validation/src/index.ts"
       ],
+      "@flight42/luggage/domain": ["libs/luggage/domain/src/index.ts"],
+      "@flight42/luggage/feature-check-in": [
+        "libs/luggage/feature-check-in/src/index.ts"
+      ],
+      "@flight42/luggage/feature-report-loss": [
+        "libs/luggage/feature-report-loss/src/index.ts"
+      ],
       "@flight42/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@flight42/shared/util-validation": [
         "libs/shared/util-validation/src/index.ts"
